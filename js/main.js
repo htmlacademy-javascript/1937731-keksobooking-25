@@ -15,3 +15,4 @@ function getRandomFloat(min, max, accuracy) {
 }
 
 getRandomFloat(0, 50, 3);
+getRandomInt(10, 25);
