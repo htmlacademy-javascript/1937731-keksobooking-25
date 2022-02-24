@@ -1,5 +1,11 @@
 /* eslint-disable no-alert */
-function getRandomNumber(min, max, accuracy) {
+function getRandomInt (min, max) {
+  if (min<0 || min>=max || max<=0) {
+    alert('Неверные значения');
+  }
+  return Math.floor(Math.random()*max);
+}
+function getRandomFloat(min, max, accuracy) {
   if (min<0 || min>=max || max<=0) {
 
     alert('Неверные значения');
@@ -8,4 +14,5 @@ function getRandomNumber(min, max, accuracy) {
   return Math.floor((Math.random()*(max-min)+min)*afterDot)/afterDot;
 }
 
-getRandomNumber(0, 50, 3);
+getRandomFloat(0, 50, 3);
+getRandomInt(10, 25);
