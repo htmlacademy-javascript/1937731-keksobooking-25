@@ -1,4 +1,6 @@
 /* eslint-disable no-alert */
+"use strict";
+
 const types = [
   'palace',
   'flat',
@@ -19,27 +21,31 @@ const photosAll = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'
 ];
 
+const titles = ['Best offer:', 'Only today:', 'Great deal:'];
+
+const descriptions =['Comfortable and large', 'Breakfast included', 'Panoramic windows and fast wi-fi'];
+
 const AD_COUNT = 15;
 
-function getRandomPositiveInt (a, b) {
+const getRandomPositiveInt = (a, b) => {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
   const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
   return Math.floor(Math.random() * (upper - lower + 1) + lower);
-}
+};
 
-function getRandomFloat(a, b, accuracy) {
+const getRandomFloat = (a, b, accuracy) => {
   const lower = Math.min(Math.abs(a), Math.abs(b));
   const upper = Math.max(Math.abs(a), Math.abs(b));
   const result = Math.random() * (upper - lower) + lower;
   return +result.toFixed(accuracy);
-}
+};
 
 const createAvatarUrlAll = (amount) => {
   const arrayNew = new Array(amount);
   for (let i = 0; i <= amount-1; i++) {
-    arrayNew [i] = 'img/avatars/user' + i + '.png';
+    arrayNew [i] = `img/avatars/user${  i  }.png`;
     if (i < 10) {
-      arrayNew [i] = 'img/avatars/user0' + i + '.png';
+      arrayNew [i] = `img/avatars/user0${  i  }.png`;
     }
   }
   return arrayNew;
@@ -72,8 +78,8 @@ function createAuthor() {
 }
 
 const createOffer = () => ({
-  title: 'The Best Booking Offer',
-  adress: locationCoor.lat + ' ' + locationCoor.lng,
+  title: getRandomArrayElement(titles),
+  address: `${locationCoor.lat  } ${  locationCoor.lng}`,
   price: getRandomPositiveInt(1, 1000),
   type: getRandomArrayElement(types),
   rooms: getRandomPositiveInt(1, 5),
@@ -81,7 +87,7 @@ const createOffer = () => ({
   checkIn: getRandomArrayElement(checkIns),
   checkOut: getRandomArrayElement(checkOuts),
   features: createRandomArrayFromArray(featuresAll),
-  description: 'Beautiful and comfortable appartment',
+  description: getRandomArrayElement(descriptions),
   photos: createRandomArrayFromArray(photosAll),
   location: locationCoor,
 });
@@ -94,4 +100,3 @@ const createAd = () => ({
 
 
 const ads = Array.from({length: AD_COUNT}, createAd);
-
