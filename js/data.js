@@ -74,7 +74,7 @@ const createAd = () => ({
 
 
 const ads = (amount) => {
-  Array.from({length: amount}, createAd);
+ return Array.from({length: amount}, createAd);
 };
 
 export {ads};
