@@ -46,10 +46,10 @@ const locationCoor = {
   lng: getRandomFloat(139.7, 139.8, 5),
 };
 
-const avatarArr = createAvatarUrlAll(AD_COUNT);
+const avatarUrlArr = createAvatarUrlAll(AD_COUNT);
 
 const createAuthor = () => ({
-  avatar: getAvatarUrl(avatarArr),
+  avatar: getAvatarUrl(avatarUrlArr),
 });
 
 const createOffer = () => ({
@@ -73,8 +73,6 @@ const createAd = () => ({
 });
 
 
-const ads = (amount) => {
- return Array.from({length: amount}, createAd);
-};
+const ads = (amount) => Array.from({length: amount}, createAd);
 
 export {ads};
