@@ -3,4 +3,4 @@
 
 import { ads } from './data.js';
 
-ads(6);
+ads(7);
